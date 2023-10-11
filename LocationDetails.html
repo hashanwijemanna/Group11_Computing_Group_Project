@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style02.css">
+    <title>Admin Panel-Location-details</title>
+
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+    
+        table, th, td {
+            border: 1px solid black;
+        }
+        
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+    }
+
+    h1 {
+        text-align: center;
+        background-color: #333;
+        color: #fff;
+        padding: 20px;
+        margin: 0;
+    }
+
+    /* Navigation bar styles */
+    nav {
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+    }
+
+    nav ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    nav li {
+        display: inline;
+        margin-right: 10px;
+    }
+
+    nav a {
+        text-decoration: none;
+        color: #fff;
+    }
+
+    .active {
+    background-color: green;
+    color: white;
+    }
+
+
+    /* Search bar styles */
+    #searchKeyword {
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        width: 300px;
+        margin-right: 10px;
+    }
+
+    #searchKeyword::placeholder {
+        color: #888;
+    }
+
+    /* Form styles */
+    form {
+        background-color: #fff;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        margin-top: 20px;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    input[type="text"],
+    input[type="date"],
+    input[type="email"],
+    select {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    input[type="submit"] {
+        background-color: #333;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+        background-color: #555;
+    }
+
+    /* Students Table styles */
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    table, th, td {
+        border: 1px solid #ccc;
+    }
+</style>
+</head>
+
+<body>
+
+    <center><h1>Location Details</h1></center>
+
+    <!--navigation bar start-->
+    <nav>
+        <ul>
+            <li><a href="AdminPanel.html">Dashboard</a></li>
+            <li><a href="UserDetails.html">User-details</a></li>
+            <li><a href="RouteDetails.html">Route-details</a></li>
+            <li><a href="TripDetails.html">Trip-detals</a></li>
+            <li><a href="LocationDetails.html" class="active">Location-details</a></li>
+            <li><a href="BusDetails.html">Bus-details</a></li>
+            <li><a href="Incidents.html">Incidents</a></li>
+            <li><a href="Notifications.html">Notifications</a></li>
+        </ul>
+    </nav>
+    <!--navigation bar end-->
+
+    <!--calling student table-->
+    <h1>Location Table</h1>
+    <div id="locationData"></div>
+
+    <!--back-to-top start-->
+    <button onclick="scrollToTop()" id="back-to-top">Back to Top</button>
+    <!--back-to-top end-->
+
+    <!--footer start-->
+    <footer>
+        <p>&copy; 2023 OSTT. All rights reserved.</p>
+    </footer>
+    <!--footer end-->
+
+
+    <script src="script02.js"></script>
+    <script src="locationdb.js"></script>
+</body>
+</html>

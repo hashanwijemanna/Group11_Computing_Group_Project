@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style02.css">
+    <title>Admin Panel-Bus-details</title>
+
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+    
+        table, th, td {
+            border: 1px solid black;
+        }
+        
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+    }
+
+    h1 {
+        text-align: center;
+        background-color: #333;
+        color: #fff;
+        padding: 20px;
+        margin: 0;
+    }
+
+    /* Navigation bar styles */
+    nav {
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+    }
+
+    nav ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    nav li {
+        display: inline;
+        margin-right: 10px;
+    }
+
+    nav a {
+        text-decoration: none;
+        color: #fff;
+    }
+
+    .active {
+    background-color: green;
+    color: white;
+    }
+
+
+    /* Search bar styles */
+    #searchKeyword {
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        width: 300px;
+        margin-right: 10px;
+    }
+
+    #searchKeyword::placeholder {
+        color: #888;
+    }
+
+    /* Form styles */
+    form {
+        background-color: #fff;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        margin-top: 20px;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    input[type="text"],
+    input[type="date"],
+    input[type="email"],
+    select {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    input[type="submit"] {
+        background-color: #333;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+        background-color: #555;
+    }
+
+    /* Students Table styles */
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    table, th, td {
+        border: 1px solid #ccc;
+    }
+</style>
+</head>
+
+<body>
+
+    <center><h1>Bus Details</h1></center>
+
+    <!--navigation bar start-->
+    <nav>
+        <ul>
+            <li><a href="AdminPanel.html">Dashboard</a></li>
+            <li><a href="UserDetails.html">User-details</a></li>
+            <li><a href="RouteDetails.html">Route-details</a></li>
+            <li><a href="TripDetails.html">Trip-detals</a></li>
+            <li><a href="LocationDetails.html">Location-details</a></li>
+            <li><a href="BusDetails.html" class="active">Bus-details</a></li>
+            <li><a href="Incidents.html">Incidents</a></li>
+            <li><a href="Notifications.html">Notifications</a></li>
+        </ul>
+    </nav>
+    <!--navigation bar end-->
+
+
+    <!-- Search Bar -->
+    <h1>Search Bus</h1>
+    <br>
+    <center><input type="text" id="searchKeyword" placeholder="Enter keyword">
+    <button onclick="searchBus()">Search</button></center>
+
+    <!--adding bus start-->
+    <h1>Add Bus</h1>
+    <form id="busForm">
+        <label for="model">Model:</label>
+        <input type="text" id="model" name="model" required>
+        <br>
+
+        <label for="license_plate_number">License Plate Number:</label>
+        <input type="text" id="license_plate_number" name="license_plate_number" required>
+        <br>
+
+        <label for="seating_capacity">Seating Capacity:</label>
+        <input type="text" id="seating_capacity" name="seating_capacity" required>
+        <br>
+
+        <label for="last_maintenace_date">Last Maintenace Date:</label>
+        <input type="date" id="last_maintenace_date" name="last_maintenace_date" required>
+        <br>
+        
+        <label for="current_status">Current Status:</label>
+        <input type="text" id="current_status" name="current_status" required>
+        <br>
+
+        <label for="owner_id">Owner ID:</label>
+        <input type="text" id="owner_id" name="owner_id" required>
+        <br>
+
+
+        <input type="submit" value="Add Bus">
+    </form>
+
+    <div id="message"></div>
+    <!--adding bus end-->
+
+
+    <!--calling student table-->
+    <h1>Bus Table</h1>
+    <div id="busData"></div>
+
+    <!--back-to-top start-->
+    <button onclick="scrollToTop()" id="back-to-top">Back to Top</button>
+    <!--back-to-top end-->
+
+    <!--footer start-->
+    <footer>
+        <p>&copy; 2023 OSTT. All rights reserved.</p>
+    </footer>
+    <!--footer end-->
+
+
+    <script src="script02.js"></script>
+    <script src="busdb.js"></script>
+</body>
+</html>
