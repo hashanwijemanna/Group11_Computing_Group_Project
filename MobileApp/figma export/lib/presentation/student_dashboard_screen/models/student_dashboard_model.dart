@@ -1,0 +1,5 @@
+import '../../../core/app_export.dart';import 'notificationgrid_item_model.dart';/// This class defines the variables used in the [student_dashboard_screen],
+/// and is typically used to hold data that is passed between different parts of the application.
+class StudentDashboardModel {Rx<List<NotificationgridItemModel>> notificationgridItemList = Rx([NotificationgridItemModel(notificationImage:ImageConstant.imgRectangle22.obs,notificationText: "Notifications".obs),NotificationgridItemModel(notificationImage:ImageConstant.imgRectangle24.obs,notificationText: "My Alerts".obs),NotificationgridItemModel(notificationImage:ImageConstant.imgRectangle30.obs,notificationText: "Bus Details".obs),NotificationgridItemModel(notificationImage:ImageConstant.imgRectangle23.obs,notificationText: "Feedbacks".obs),NotificationgridItemModel(notificationImage:ImageConstant.imgRectangle28.obs,notificationText: "Report".obs),NotificationgridItemModel(notificationImage:ImageConstant.imgRectangle29.obs,notificationText: "Attendance".obs)]);
+
+ }

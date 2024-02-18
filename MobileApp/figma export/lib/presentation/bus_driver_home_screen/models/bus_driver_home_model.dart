@@ -1,0 +1,5 @@
+import '../../../core/app_export.dart';import 'mapgrid1_item_model.dart';/// This class defines the variables used in the [bus_driver_home_screen],
+/// and is typically used to hold data that is passed between different parts of the application.
+class BusDriverHomeModel {Rx<List<Mapgrid1ItemModel>> mapgrid1ItemList = Rx([Mapgrid1ItemModel(mapImage:ImageConstant.imgRectangle16.obs,mapText: "Map".obs),Mapgrid1ItemModel(mapImage:ImageConstant.imgRectangle291.obs,mapText: "Driver Details".obs),Mapgrid1ItemModel(mapImage:ImageConstant.imgRectangle21.obs,mapText: "Route Details".obs),Mapgrid1ItemModel(mapImage:ImageConstant.imgRectangle22.obs,mapText: "Notifications".obs),Mapgrid1ItemModel(mapImage:ImageConstant.imgRectangle24.obs,mapText: "My Alerts".obs),Mapgrid1ItemModel(mapImage:ImageConstant.imgRectangle30.obs,mapText: "Bus Details".obs),Mapgrid1ItemModel(mapImage:ImageConstant.imgRectangle23.obs,mapText: "Feedbacks".obs),Mapgrid1ItemModel(mapImage:ImageConstant.imgRectangle28.obs,mapText: "Report".obs)]);
+
+ }

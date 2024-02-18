@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
 import 'SecondPage.dart'; // Import the SecondPage
 
 void main() {
@@ -10,6 +11,7 @@ class NetRides extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: "Net Rides",
       theme: ThemeData(primarySwatch: Colors.blue),
       home: NetRidesHome(), // Use NetRidesHome widget as the home

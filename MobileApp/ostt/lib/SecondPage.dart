@@ -6,6 +6,7 @@ class SecondPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: "Net Rides",
       theme: ThemeData(
         primarySwatch: Colors.blue,

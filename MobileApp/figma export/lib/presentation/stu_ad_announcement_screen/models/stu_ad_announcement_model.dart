@@ -1,0 +1,5 @@
+import '../../../core/app_export.dart';import 'notificationlist2_item_model.dart';/// This class defines the variables used in the [stu_ad_announcement_screen],
+/// and is typically used to hold data that is passed between different parts of the application.
+class StuAdAnnouncementModel {Rx<List<Notificationlist2ItemModel>> notificationlist2ItemList = Rx([Notificationlist2ItemModel(notificationText: "Displaying Notification here         00:00".obs),Notificationlist2ItemModel(notificationText: "Displaying Notification here         00:00".obs),Notificationlist2ItemModel(notificationText: "Displaying Notification here         00:00".obs),Notificationlist2ItemModel(notificationText: "Displaying Notification here         00:00".obs),Notificationlist2ItemModel(notificationText: "Displaying Notification here         00:00".obs),Notificationlist2ItemModel(notificationText: "Displaying Notification here         00:00".obs),Notificationlist2ItemModel(notificationText: "Displaying Notification here         00:00".obs),Notificationlist2ItemModel(notificationText: "Displaying Notification here         00:00".obs)]);
+
+ }

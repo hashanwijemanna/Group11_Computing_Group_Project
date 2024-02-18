@@ -1,0 +1,20 @@
+import '../bus_owner_home_screen/widgets/mapgrid_item_widget.dart';import 'controller/bus_owner_home_controller.dart';import 'models/mapgrid_item_model.dart';import 'package:flutter/material.dart';import 'package:thamal_s_application7/core/app_export.dart';import 'package:thamal_s_application7/widgets/app_bar/custom_app_bar.dart';import 'package:thamal_s_application7/widgets/custom_search_view.dart';class BusOwnerHomeScreen extends GetWidget<BusOwnerHomeController> {const BusOwnerHomeScreen({Key? key}) : super(key: key);
+
+@override Widget build(BuildContext context) { return SafeArea(child: Scaffold(extendBody: true, extendBodyBehindAppBar: true, resizeToAvoidBottomInset: false, appBar: _buildAppBar(), body: Container(width: SizeUtils.width, height: SizeUtils.height, padding: EdgeInsets.only(top: 56.v, bottom: 24.v), decoration: BoxDecoration(image: DecorationImage(image: AssetImage(ImageConstant.imgGroup430), fit: BoxFit.cover)), child: Container(width: double.maxFinite, padding: EdgeInsets.symmetric(horizontal: 5.h, vertical: 11.v), child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [_buildSearchRow(), SizedBox(height: 33.v), _buildMapGrid()]))), bottomNavigationBar: _buildContrastRow())); } 
+/// Section Widget
+PreferredSizeWidget _buildAppBar() { return CustomAppBar(actions: [Container(height: 40.adaptSize, width: 40.adaptSize, margin: EdgeInsets.symmetric(horizontal: 10.h, vertical: 8.v), decoration: BoxDecoration(color: appTheme.blueGray100, borderRadius: BorderRadius.circular(20.h)))]); } 
+/// Section Widget
+Widget _buildSearchRow() { return Padding(padding: EdgeInsets.only(left: 5.h, right: 17.h), child: Row(children: [Expanded(child: CustomSearchView(controller: controller.searchController, borderDecoration: SearchViewStyleHelper.fillLightBlueA, fillColor: appTheme.lightBlueA100)), CustomImageView(imagePath: ImageConstant.imgRewindBlue800, height: 17.adaptSize, width: 17.adaptSize, margin: EdgeInsets.only(left: 10.h, top: 9.v, bottom: 8.v))])); } 
+/// Section Widget
+Widget _buildMapGrid() { return Obx(() => GridView.builder(shrinkWrap: true, gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(mainAxisExtent: 248.v, crossAxisCount: 2, mainAxisSpacing: 20.h, crossAxisSpacing: 20.h), physics: NeverScrollableScrollPhysics(), itemCount: controller.busOwnerHomeModelObj.value.mapgridItemList.value.length, itemBuilder: (context, index) {MapgridItemModel model = controller.busOwnerHomeModelObj.value.mapgridItemList.value[index]; return MapgridItemWidget(model, onTapImgMapImage: () {onTapImgMapImage();});})); } 
+/// Section Widget
+Widget _buildContrastRow() { return Padding(padding: EdgeInsets.only(left: 12.h, right: 12.h, bottom: 14.v), child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [CustomImageView(imagePath: ImageConstant.imgContrast, height: 16.adaptSize, width: 16.adaptSize, margin: EdgeInsets.only(top: 2.v, bottom: 6.v), onTap: () {onTapImgContrast();}), CustomImageView(imagePath: ImageConstant.imgBellRingBlue800, height: 24.adaptSize, width: 24.adaptSize), CustomImageView(imagePath: ImageConstant.imgHomeBlue800, height: 17.v, width: 20.h, margin: EdgeInsets.only(top: 2.v, bottom: 5.v)), CustomImageView(imagePath: ImageConstant.imgBusBlue800, height: 24.adaptSize, width: 24.adaptSize, onTap: () {onTapImgBus();}), CustomImageView(imagePath: ImageConstant.imgFacebookBlue800, height: 18.v, width: 22.h, margin: EdgeInsets.only(top: 2.v, bottom: 3.v), onTap: () {onTapImgFacebook();})])); } 
+/// Navigates to the mapBusOwnerBusDriverScreen when the action is triggered.
+onTapImgMapImage() { Get.toNamed(AppRoutes.mapBusOwnerBusDriverScreen); } 
+/// Navigates to the busOwnerProfileScreen when the action is triggered.
+onTapImgContrast() { Get.toNamed(AppRoutes.busOwnerProfileScreen, ); } 
+/// Navigates to the busDetailsScreen when the action is triggered.
+onTapImgBus() { Get.toNamed(AppRoutes.busDetailsScreen, ); } 
+/// Navigates to the driverDetailsScreen when the action is triggered.
+onTapImgFacebook() { Get.toNamed(AppRoutes.driverDetailsScreen, ); } 
+ }

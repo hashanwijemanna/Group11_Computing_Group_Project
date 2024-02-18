@@ -5,6 +5,7 @@ class Register extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: "Net Rides",
       theme: ThemeData(
         primarySwatch: Colors.blue, // Set primary color of the app to blue
@@ -37,7 +38,7 @@ class _SignupState extends State<Signup> {
   void _redirectToOtherPage() {
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => signUp()),
+      MaterialPageRoute(builder: (context) => SignUp()),
     );
   }
 

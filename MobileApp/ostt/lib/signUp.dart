@@ -1,10 +1,13 @@
+import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
 import 'SignIn.dart';
 
-class signUp extends StatelessWidget {
+class SignUp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: "Net Rides",
       theme: ThemeData(
         primarySwatch: Colors.blue,
@@ -27,6 +30,33 @@ class _SignUpPageState extends State<SignUpPage> {
   String _password = '';
   String _userType = '';
 
+  Future<void> insertRecord() async {
+    try {
+      String uri = "http://10.0.2.2/practice_api/insert_record.php";
+
+      var res = await http.post(Uri.parse(uri), body: {
+        "username": _userName,
+        "email": _email,
+        "user_type": _userType,
+        "password": _password
+      });
+
+      if (res.statusCode == 200) {
+        var response = jsonDecode(res.body);
+        if (response["success"] == true) {
+          print("Record Inserted!");
+          _navigateToSignIn(context);
+        } else {
+          print("Error: ${response['message']}");
+        }
+      } else {
+        print("Error: HTTP ${res.statusCode} ${res.reasonPhrase}");
+      }
+    } catch (e) {
+      print("Error: $e");
+    }
+  }
+
   void _navigateToSignIn(BuildContext context) {
     Navigator.push(
       context,
@@ -37,22 +67,21 @@ class _SignUpPageState extends State<SignUpPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Stack(
-          children: [
-            Image.asset(
-              'assets/sign.jpg',
-              width: double.infinity,
-              height: double.infinity,
-              fit: BoxFit.cover,
-            ),
-            Padding(
+      body: Stack(
+        children: [
+          Image.asset(
+            'assets/sign.png', // Path to your image asset
+            width: MediaQuery.of(context).size.width, // Width equal to device width
+            fit: BoxFit.fitWidth, // Fit the width of the device
+          ),
+          SingleChildScrollView(
+            child: Container(
               padding: const EdgeInsets.all(20.0),
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
+                  SizedBox(height: MediaQuery.of(context).padding.top + 20), // Adjust for system status bar
                   Text(
-                    'Sign Up\n',
+                    '\n\n\n\n',
                     style: TextStyle(
                       fontSize: 20.0,
                       fontWeight: FontWeight.bold,
@@ -60,6 +89,7 @@ class _SignUpPageState extends State<SignUpPage> {
                       color: Colors.grey,
                     ),
                   ),
+                  SizedBox(height: 20.0), // Add a gap between "Sign Up" text and image
                   Form(
                     key: _formKey,
                     child: Column(
@@ -157,18 +187,21 @@ class _SignUpPageState extends State<SignUpPage> {
                         SizedBox(height: 20.0),
                         ElevatedButton(
                           onPressed: () {
-                            if (_formKey.currentState != null && _formKey.currentState!.validate()) {
+                            if (_formKey.currentState != null &&
+                                _formKey.currentState!.validate()) {
                               // Process sign-up
                               print('User Name: $_userName');
                               print('Email: $_email');
                               print('User Type: $_userType');
                               print('Password: $_password');
-                              _navigateToSignIn(context);
+                              insertRecord();
                             }
                           },
                           style: ButtonStyle(
-                            backgroundColor: MaterialStateProperty.all<Color>(Colors.green),
-                            textStyle: MaterialStateProperty.all<TextStyle>(TextStyle(color: Colors.white)), // Set text color to white
+                            backgroundColor: MaterialStateProperty.all<Color>(
+                                Colors.green),
+                            textStyle: MaterialStateProperty.all<TextStyle>(
+                                TextStyle(color: Colors.white)), // Set text color to white
                           ),
                           child: Text(
                             'Sign Up',
@@ -185,8 +218,8 @@ class _SignUpPageState extends State<SignUpPage> {
                 ],
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
