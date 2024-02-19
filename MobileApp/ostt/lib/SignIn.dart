@@ -1,6 +1,12 @@
 import 'package:flutter/material.dart';
-import 'Register.dart';
 import 'package:http/http.dart' as http;
+import 'StudentHomePage.dart';
+import 'ParentHomePage.dart';
+import 'BusOwnerHomePage.dart';
+import 'BusDriverHomePage.dart';
+import 'dart:convert';
+import 'AboutMe.dart';
+import 'Register.dart';
 
 class SignIn extends StatelessWidget {
   @override
@@ -63,13 +69,13 @@ class _SignState extends State<Sign> {
             case "Bus Owner":
               Navigator.pushReplacement(
                 context,
-                MaterialPageRoute(builder: (context) => BusOwnerHomePage()),
+                MaterialPageRoute(builder: (context) => BusOwnerHomePage(email: _email,)),
               );
               break;
             case "Bus Driver":
               Navigator.pushReplacement(
                 context,
-                MaterialPageRoute(builder: (context) => BusDriverHomePage()),
+                MaterialPageRoute(builder: (context) => BusDriverHomePage(email: _email)),
               );
               break;
             default:
@@ -242,62 +248,6 @@ class SignUp extends StatelessWidget {
       ),
       body: Center(
         child: Text('Sign Up Page'),
-      ),
-    );
-  }
-}
-
-class StudentHomePage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Student Home Page'),
-      ),
-      body: Center(
-        child: Text('Welcome to Student Home Page'),
-      ),
-    );
-  }
-}
-
-class ParentHomePage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Parent Home Page'),
-      ),
-      body: Center(
-        child: Text('Welcome to Parent Home Page'),
-      ),
-    );
-  }
-}
-
-class BusOwnerHomePage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Bus Owner Home Page'),
-      ),
-      body: Center(
-        child: Text('Welcome to Bus Owner Home Page'),
-      ),
-    );
-  }
-}
-
-class BusDriverHomePage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Bus Driver Home Page'),
-      ),
-      body: Center(
-        child: Text('Welcome to Bus Driver Home Page'),
       ),
     );
   }
