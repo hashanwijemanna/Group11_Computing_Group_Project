@@ -4,8 +4,6 @@ import 'StudentHomePage.dart';
 import 'ParentHomePage.dart';
 import 'BusOwnerHomePage.dart';
 import 'BusDriverHomePage.dart';
-import 'dart:convert';
-import 'AboutMe.dart';
 import 'Register.dart';
 
 class SignIn extends StatelessWidget {
@@ -57,13 +55,13 @@ class _SignState extends State<Sign> {
             case "Student":
               Navigator.pushReplacement(
                 context,
-                MaterialPageRoute(builder: (context) => StudentHomePage()),
+                MaterialPageRoute(builder: (context) => StudentHomePage(email: _email,)),
               );
               break;
             case "Parent":
               Navigator.pushReplacement(
                 context,
-                MaterialPageRoute(builder: (context) => ParentHomePage()),
+                MaterialPageRoute(builder: (context) => ParentHomePage(email: _email,)),
               );
               break;
             case "Bus Owner":

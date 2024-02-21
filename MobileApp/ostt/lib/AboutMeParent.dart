@@ -1,19 +1,20 @@
 import 'package:flutter/material.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import 'package:ostt/BusOwnerHomePage.dart';
+import 'package:ostt/ParentHomePage.dart';
 import 'SignIn.dart';
 
-class AboutMe extends StatefulWidget {
+class AboutMeParent extends StatefulWidget {
   final String email;
 
-  AboutMe({required this.email});
+
+  AboutMeParent({required this.email});
 
   @override
   _AboutMePageState createState() => _AboutMePageState();
 }
 
-class _AboutMePageState extends State<AboutMe> {
+class _AboutMePageState extends State<AboutMeParent> {
   Map<String, dynamic> userInfo = {};
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -129,7 +130,7 @@ class _AboutMePageState extends State<AboutMe> {
                 Navigator.pop(context); // Close the drawer
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(builder: (context) => BusOwnerHomePage(email: '',)),
+                  MaterialPageRoute(builder: (context) => ParentHomePage(email: '',)),
                 );
               },
             ),
@@ -145,7 +146,7 @@ class _AboutMePageState extends State<AboutMe> {
                 // Navigate to the SignIn screen
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(builder: (context) => BusOwnerHomePage(email: widget.email)),
+                  MaterialPageRoute(builder: (context) => AboutMeParent(email: widget.email)),
                 );
               },
             ),

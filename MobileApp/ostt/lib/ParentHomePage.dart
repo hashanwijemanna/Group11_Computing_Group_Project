@@ -1,24 +1,35 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'signin.dart'; // Import the SignIn screen file
+import 'AboutMeParent.dart';
+import 'SignIn.dart' show SignIn;
 
-class ParentHomePage extends StatelessWidget {
-  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+class ParentHomePage extends StatefulWidget {
+  final String email;
 
+  ParentHomePage({required this.email});
+
+  @override
+  _ParentHomePageState createState() => _ParentHomePageState();
+}
+
+class _ParentHomePageState extends State<ParentHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      key: _scaffoldKey,
       appBar: AppBar(
         backgroundColor: Colors.blue[900], // Navy blue color
         title: Text(
           'Parent Dashboard',
           style: TextStyle(color: Colors.white), // White text color
         ),
-        leading: IconButton(
-          icon: Icon(Icons.menu, color: Colors.white), // Menu icon with white color
-          onPressed: () {
-            _scaffoldKey.currentState!.openDrawer(); // Open the drawer
+        leading: Builder(
+          builder: (BuildContext context) {
+            return IconButton(
+              icon: Icon(Icons.menu, color: Colors.white), // Menu icon with white color
+              onPressed: () {
+                Scaffold.of(context).openDrawer(); // Open the drawer
+              },
+            );
           },
         ),
       ),
@@ -119,7 +130,7 @@ class ParentHomePage extends StatelessWidget {
                 // Navigate to the SignIn screen
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(builder: (context) => ParentHomePage()),
+                  MaterialPageRoute(builder: (context) => ParentHomePage(email: '')),
                 );
               },
             ),
@@ -127,7 +138,10 @@ class ParentHomePage extends StatelessWidget {
               title: Text('About Me'),
               onTap: () {
                 Navigator.pop(context); // Close the drawer
-                // Navigate to the About Me page or perform any other action
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => AboutMeParent(email: widget.email)),
+                );
               },
             ),
             ListTile(

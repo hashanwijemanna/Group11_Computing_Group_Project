@@ -1,24 +1,36 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'signin.dart'; // Import the SignIn screen file
+import 'package:ostt/AboutMeStudent.dart';
+import 'SignIn.dart' show SignIn;
+import 'AboutUsStudent.dart';
 
-class StudentHomePage extends StatelessWidget {
-  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+class StudentHomePage extends StatefulWidget {
+  final String email;
 
+  StudentHomePage({required this.email});
+
+  @override
+  _StudentHomePageState createState() => _StudentHomePageState();
+}
+
+class _StudentHomePageState extends State<StudentHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      key: _scaffoldKey,
       appBar: AppBar(
         backgroundColor: Colors.blue[900], // Navy blue color
         title: Text(
           'Student Dashboard',
           style: TextStyle(color: Colors.white), // White text color
         ),
-        leading: IconButton(
-          icon: Icon(Icons.menu, color: Colors.white), // Menu icon with white color
-          onPressed: () {
-            _scaffoldKey.currentState!.openDrawer(); // Open the drawer
+        leading: Builder(
+          builder: (BuildContext context) {
+            return IconButton(
+              icon: Icon(Icons.menu, color: Colors.white), // Menu icon with white color
+              onPressed: () {
+                Scaffold.of(context).openDrawer(); // Open the drawer
+              },
+            );
           },
         ),
       ),
@@ -119,7 +131,7 @@ class StudentHomePage extends StatelessWidget {
                 // Navigate to the SignIn screen
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(builder: (context) => StudentHomePage()),
+                  MaterialPageRoute(builder: (context) => StudentHomePage(email: '',)),
                 );
               },
             ),
@@ -127,14 +139,20 @@ class StudentHomePage extends StatelessWidget {
               title: Text('About Me'),
               onTap: () {
                 Navigator.pop(context); // Close the drawer
-                // Navigate to the About Me page or perform any other action
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => AboutMeStudent(email: widget.email)),
+                );
               },
             ),
             ListTile(
               title: Text('About Us'),
               onTap: () {
                 Navigator.pop(context); // Close the drawer
-                // Navigate to the About Me page or perform any other action
+                Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => AboutUsStudent()),
+                );
               },
             ),
             ListTile(

@@ -1,8 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'AboutMe.dart';
+import 'package:ostt/AboutMeDriver.dart';
 import 'SignIn.dart' show SignIn; // Import the SignIn screen file
-import 'BusOwnerHomePage.dart'; // Import only BusOwnerHomePage
 
 class BusDriverHomePage extends StatefulWidget {
   final String email;
@@ -128,10 +127,10 @@ class _BusDriverHomePageState extends State<BusDriverHomePage> {
               ),
               tileColor: Colors.green, // Red background color for the tile
               onTap: () {
-                // Navigate to the SignIn screen
+                Navigator.pop(context); // Close the drawer
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(builder: (context) => BusOwnerHomePage(email: widget.email)),
+                  MaterialPageRoute(builder: (context) => BusDriverHomePage(email: '',)),
                 );
               },
             ),
@@ -141,7 +140,7 @@ class _BusDriverHomePageState extends State<BusDriverHomePage> {
                 Navigator.pop(context); // Close the drawer
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(builder: (context) => AboutMe(email: widget.email)),
+                  MaterialPageRoute(builder: (context) => AboutMeDriver(email: widget.email)),
                 );
               },
             ),

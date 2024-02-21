@@ -1,19 +1,46 @@
 import 'package:flutter/material.dart';
-import 'package:carousel_slider/carousel_slider.dart';
-import 'AboutMeOwner.dart';
-import 'SignIn.dart' show SignIn; // Import the SignIn screen file
+import 'dart:convert';
+import 'package:http/http.dart' as http;
+import 'package:ostt/BusOwnerHomePage.dart';
+import 'SignIn.dart';
 
-class BusOwnerHomePage extends StatefulWidget {
+class AboutMeOwner extends StatefulWidget {
   final String email;
 
-  BusOwnerHomePage({required this.email});
+
+  AboutMeOwner({required this.email});
 
   @override
-  _BusOwnerHomePageState createState() => _BusOwnerHomePageState();
+  _AboutMePageState createState() => _AboutMePageState();
 }
 
-class _BusOwnerHomePageState extends State<BusOwnerHomePage> {
+class _AboutMePageState extends State<AboutMeOwner> {
+  Map<String, dynamic> userInfo = {};
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+
+  @override
+  void initState() {
+    super.initState();
+    // Fetch user information when the page initializes
+    fetchUserInfo();
+  }
+
+  Future<void> fetchUserInfo() async {
+    final response = await http.post(
+      Uri.parse('http://10.0.2.2/practice_api/user_info.php'), // Replace with your API endpoint
+      body: {
+        'email': widget.email,
+      },
+    );
+
+    if (response.statusCode == 200) {
+      setState(() {
+        userInfo = json.decode(response.body);
+      });
+    } else {
+      throw Exception('Failed to load user information');
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -21,10 +48,7 @@ class _BusOwnerHomePageState extends State<BusOwnerHomePage> {
       key: _scaffoldKey,
       appBar: AppBar(
         backgroundColor: Colors.blue[900], // Navy blue color
-        title: Text(
-          'Bus Owner Dashboard',
-          style: TextStyle(color: Colors.white), // White text color
-        ),
+        title: Text('About Me', style: TextStyle(color: Colors.white)), // White text color
         leading: IconButton(
           icon: Icon(Icons.menu, color: Colors.white), // Menu icon with white color
           onPressed: () {
@@ -32,69 +56,52 @@ class _BusOwnerHomePageState extends State<BusOwnerHomePage> {
           },
         ),
       ),
-      body: Container(
-        color: Colors.blue[100], // Background color of the container
-        child: Column(
-          children: [
-            SizedBox(height: 40),
-            CarouselSlider(
-              options: CarouselOptions(
-                autoPlay: true,
-                aspectRatio: 16 / 9,
-                enlargeCenterPage: true,
+      body: SingleChildScrollView(
+        child: Container(
+          color: Colors.blue[100], // Background color of the container
+          padding: EdgeInsets.all(20.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                'User Details',
+                style: TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.blue[900],
+                ),
               ),
-              items: [
-                AssetImage('assets/slider/slide1.jpg'),
-                AssetImage('assets/slider/slide2.jpg'),
-                AssetImage('assets/slider/slide3.jpg'),
-                AssetImage('assets/slider/slide4.jpg'),
-                AssetImage('assets/slider/slide5.jpg'),
-                // Add more images as needed
-              ].map((item) {
-                return Builder(
-                  builder: (BuildContext context) {
-                    return Container(
-                      width: MediaQuery.of(context).size.width,
-                      margin: EdgeInsets.symmetric(horizontal: 5.0),
-                      decoration: BoxDecoration(
-                        color: Colors.grey,
-                      ),
-                      child: Image(
-                        image: item,
-                        fit: BoxFit.cover,
-                      ),
-                    );
-                  },
-                );
-              }).toList(),
-            ),
-            SizedBox(height: 20), // Spacer
-            Padding(
-              padding: const EdgeInsets.all(20.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Text(
-                    '\n\nWelcome to NetRides!',
-                    style: TextStyle(
-                      color: Colors.blue[600],
-                      fontSize: 24.0,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  SizedBox(height: 10),
-                  Text(
-                    '\nYour ultimate destination for hassle-free transportation.',
-                    style: TextStyle(
-                      color: Colors.grey[600],
-                      fontSize: 16.0,
-                    ),
-                    textAlign: TextAlign.center,
-                  ),
-                ],
+              SizedBox(height: 20),
+              Center(
+                child: CircleAvatar(
+                  radius: 50,
+                  backgroundImage: AssetImage('assets/user.png'),
+                ),
               ),
-            ),
-          ],
+              SizedBox(height: 20),
+              Text(
+                '\n\nUser ID: ${userInfo['user_id'] ?? 'Loading...'}',
+                style: TextStyle(fontSize: 18),
+              ),
+              SizedBox(height: 10),
+              Text(
+                'User Name: ${userInfo['username'] ?? 'Loading...'}',
+                style: TextStyle(fontSize: 18),
+              ),
+              SizedBox(height: 10),
+              Text(
+                'Email: ${userInfo['email'] ?? 'Loading...'}',
+                style: TextStyle(fontSize: 18),
+              ),
+              SizedBox(height: 10),
+              Text(
+                'User Type: ${userInfo['user_type'] ?? 'Loading...'}',
+                style: TextStyle(fontSize: 18),
+              ),
+            ],
+          ),
+          width: MediaQuery.of(context).size.width,
+          height: MediaQuery.of(context).size.height,
         ),
       ),
       drawer: Drawer(
@@ -118,8 +125,18 @@ class _BusOwnerHomePageState extends State<BusOwnerHomePage> {
               ),
             ),
             ListTile(
+              title: Text('Dashboard'),
+              onTap: () {
+                Navigator.pop(context); // Close the drawer
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => BusOwnerHomePage(email: '',)),
+                );
+              },
+            ),
+            ListTile(
               title: Text(
-                'Dashboard',
+                'About Me',
                 style: TextStyle(
                   color: Colors.white,
                 ),
@@ -130,16 +147,6 @@ class _BusOwnerHomePageState extends State<BusOwnerHomePage> {
                 Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(builder: (context) => BusOwnerHomePage(email: widget.email)),
-                );
-              },
-            ),
-            ListTile(
-              title: Text('About Me'),
-              onTap: () {
-                Navigator.pop(context); // Close the drawer
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(builder: (context) => AboutMeOwner(email: widget.email)),
                 );
               },
             ),
