@@ -110,3 +110,10 @@ flutter:
     - assets/slider/slide4.jpg
     - assets/slider/slide5.jpg
     - assets/user.png
+    - assets/users/student.png
+    - assets/student/bus.png
+    - assets/student/map.png
+    - assets/student/activity.png
+    - assets/student/notification.png
+    - assets/student/route.png
+    - assets/student/feedback.png

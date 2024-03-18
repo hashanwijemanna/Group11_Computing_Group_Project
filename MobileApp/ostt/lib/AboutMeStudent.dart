@@ -76,7 +76,7 @@ class _AboutMePageState extends State<AboutMeStudent> {
               Center(
                 child: CircleAvatar(
                   radius: 50,
-                  backgroundImage: AssetImage('assets/user.png'),
+                  backgroundImage: AssetImage('assets/users/student.png'),
                 ),
               ),
               SizedBox(height: 20),
