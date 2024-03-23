@@ -114,8 +114,7 @@ class _StudentHomePageState extends State<StudentHomePage> {
                             ),
                             label: Text('Map'),
                             style: ElevatedButton.styleFrom(
-                              primary: Colors.white, // Background color
-                              onPrimary: Colors.black, // Text color
+                              foregroundColor: Colors.black, backgroundColor: Colors.white, // Text color
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(20.0),
                               ),
@@ -133,8 +132,7 @@ class _StudentHomePageState extends State<StudentHomePage> {
                             ),
                             label: Text('Bus\nDetails'),
                             style: ElevatedButton.styleFrom(
-                              primary: Colors.white, // Background color
-                              onPrimary: Colors.black, // Text color
+                              foregroundColor: Colors.black, backgroundColor: Colors.white,
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(20.0),
                               ),
@@ -158,8 +156,7 @@ class _StudentHomePageState extends State<StudentHomePage> {
                             ),
                             label: Text('Route\nDetails'),
                             style: ElevatedButton.styleFrom(
-                              primary: Colors.white, // Background color
-                              onPrimary: Colors.black, // Text color
+                              foregroundColor: Colors.black, backgroundColor: Colors.white,
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(20.0),
                               ),
@@ -177,8 +174,7 @@ class _StudentHomePageState extends State<StudentHomePage> {
                             ),
                             label: Text('History'),
                             style: ElevatedButton.styleFrom(
-                              primary: Colors.white, // Background color
-                              onPrimary: Colors.black, // Text color
+                              foregroundColor: Colors.black, backgroundColor: Colors.white,
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(20.0),
                               ),
@@ -202,8 +198,7 @@ class _StudentHomePageState extends State<StudentHomePage> {
                             ),
                             label: Text('Notifications'),
                             style: ElevatedButton.styleFrom(
-                              primary: Colors.white, // Background color
-                              onPrimary: Colors.black, // Text color
+                              foregroundColor: Colors.black, backgroundColor: Colors.white,
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(20.0),
                               ),
@@ -221,8 +216,7 @@ class _StudentHomePageState extends State<StudentHomePage> {
                             ),
                             label: Text('Feedbacks'),
                             style: ElevatedButton.styleFrom(
-                              primary: Colors.white, // Background color
-                              onPrimary: Colors.black, // Text color
+                              foregroundColor: Colors.black, backgroundColor: Colors.white,
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(20.0),
                               ),

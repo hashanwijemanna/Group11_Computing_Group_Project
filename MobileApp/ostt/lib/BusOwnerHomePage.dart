@@ -111,8 +111,7 @@ class _BusOwnerHomePageState extends State<BusOwnerHomePage> {
                           ),
                           label: Text('Register\nDrivers'),
                           style: ElevatedButton.styleFrom(
-                            primary: Colors.white, // Background color
-                            onPrimary: Colors.black, // Text color
+                            foregroundColor: Colors.black, backgroundColor: Colors.white, // Text color
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(20.0),
                             ),
@@ -130,8 +129,7 @@ class _BusOwnerHomePageState extends State<BusOwnerHomePage> {
                           ),
                           label: Text('Bus\nDetails'),
                           style: ElevatedButton.styleFrom(
-                            primary: Colors.white, // Background color
-                            onPrimary: Colors.black, // Text color
+                            foregroundColor: Colors.black, backgroundColor: Colors.white, // Text color
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(20.0),
                             ),
@@ -155,8 +153,7 @@ class _BusOwnerHomePageState extends State<BusOwnerHomePage> {
                           ),
                           label: Text('Notifications'),
                           style: ElevatedButton.styleFrom(
-                            primary: Colors.white, // Background color
-                            onPrimary: Colors.black, // Text color
+                            foregroundColor: Colors.black, backgroundColor: Colors.white, // Text color
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(20.0),
                             ),
@@ -174,8 +171,7 @@ class _BusOwnerHomePageState extends State<BusOwnerHomePage> {
                           ),
                           label: Text('Feedbacks'),
                           style: ElevatedButton.styleFrom(
-                            primary: Colors.white, // Background color
-                            onPrimary: Colors.black, // Text color
+                            foregroundColor: Colors.black, backgroundColor: Colors.white, // Text color
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(20.0),
                             ),

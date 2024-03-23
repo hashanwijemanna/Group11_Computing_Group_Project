@@ -61,7 +61,7 @@ class _SignupState extends State<Signup> {
                 child: ElevatedButton(
                   onPressed: _redirectToOtherPage,
                   style: ElevatedButton.styleFrom(
-                    primary: Colors.white, // Set button background color to white
+                    backgroundColor: Colors.white, // Set button background color to white
                   ),
                   child: Text(
                     'Sign Up',
@@ -79,7 +79,7 @@ class _SignupState extends State<Signup> {
                 child: ElevatedButton(
                   onPressed: _nextPage,
                   style: ElevatedButton.styleFrom(
-                    primary: Colors.white, // Set button background color to white
+                    backgroundColor: Colors.white, // Set button background color to white
                   ),
                   child: Text(
                     'Next',
