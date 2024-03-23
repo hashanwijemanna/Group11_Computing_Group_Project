@@ -50,8 +50,7 @@ class _CategoryState extends State<Category> {
                 );
               },
               style: ElevatedButton.styleFrom(
-                primary: Colors.white,
-                onPrimary: Colors.lightBlue,
+                foregroundColor: Colors.white, backgroundColor: Colors.white,
               ),
               child: Text("A Student", style: TextStyle(color: Colors.lightBlue)),
             ),
@@ -64,8 +63,7 @@ class _CategoryState extends State<Category> {
                 );
               },
               style: ElevatedButton.styleFrom(
-                primary: Colors.white,
-                onPrimary: Colors.lightBlue,
+                foregroundColor: Colors.white, backgroundColor: Colors.white,
               ),
               child: Text("A Parent", style: TextStyle(color: Colors.lightBlue)),
             ),
@@ -78,8 +76,7 @@ class _CategoryState extends State<Category> {
                 );
               },
               style: ElevatedButton.styleFrom(
-                primary: Colors.white,
-                onPrimary: Colors.lightBlue,
+                foregroundColor: Colors.white, backgroundColor: Colors.white,
               ),
               child: Text("A Bus Owner", style: TextStyle(color: Colors.lightBlue)),
             ),
@@ -92,8 +89,7 @@ class _CategoryState extends State<Category> {
                 );
               },
               style: ElevatedButton.styleFrom(
-                primary: Colors.white,
-                onPrimary: Colors.lightBlue,
+                foregroundColor: Colors.white, backgroundColor: Colors.white,
               ),
               child: Text("A Bus Driver", style: TextStyle(color: Colors.lightBlue)),
             ),
