@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'signUp.dart';
+import 'Category.dart';
 
 class Register extends StatelessWidget {
   @override
@@ -38,7 +38,7 @@ class _SignupState extends State<Signup> {
   void _redirectToOtherPage() {
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => SignUp()),
+      MaterialPageRoute(builder: (context) => CategoryPage()), //changed!!!!
     );
   }
 

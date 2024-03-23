@@ -27,7 +27,7 @@ class _AboutMePageState extends State<AboutMeDriver> {
 
   Future<void> fetchUserInfo() async {
     final response = await http.post(
-      Uri.parse('http://10.0.2.2/practice_api/user_info.php'), // Replace with your API endpoint
+      Uri.parse('https://osttnetrides.000webhostapp.com/user_info_driver.php'), // Replace with your API endpoint
       body: {
         'email': widget.email,
       },
@@ -95,7 +95,7 @@ class _AboutMePageState extends State<AboutMeDriver> {
               ),
               SizedBox(height: 10),
               Text(
-                'User Type: ${userInfo['user_type'] ?? 'Loading...'}',
+                'User Type: Bus Driver',
                 style: TextStyle(fontSize: 18),
               ),
             ],

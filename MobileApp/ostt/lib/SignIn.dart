@@ -9,15 +9,7 @@ import 'Register.dart';
 class SignIn extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: "Net Rides",
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        backgroundColor: Colors.blue, // Set background color of the entire app to blue
-      ),
-      home: Sign(),
-    );
+    return Sign();
   }
 }
 
@@ -41,7 +33,7 @@ class _SignState extends State<Sign> {
 
   void _signIn() async {
     try {
-      String uri = "http://10.0.2.2/practice_api/signIn.php";
+      String uri = "https://osttnetrides.000webhostapp.com/signIn.php";
 
       var res = await http.post(Uri.parse(uri), body: {
         "email": _email,
@@ -52,25 +44,25 @@ class _SignState extends State<Sign> {
         if (res.body.isNotEmpty && !res.body.startsWith("Invalid")) {
           // Redirect based on response from PHP
           switch (res.body) {
-            case "Student":
+            case "user_student":
               Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(builder: (context) => StudentHomePage(email: _email,)),
               );
               break;
-            case "Parent":
+            case "user_parent":
               Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(builder: (context) => ParentHomePage(email: _email,)),
               );
               break;
-            case "Bus Owner":
+            case "user_owner":
               Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(builder: (context) => BusOwnerHomePage(email: _email,)),
               );
               break;
-            case "Bus Driver":
+            case "user_driver":
               Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(builder: (context) => BusDriverHomePage(email: _email)),
@@ -232,20 +224,6 @@ class _SignState extends State<Sign> {
             ),
           ),
         ),
-      ),
-    );
-  }
-}
-
-class SignUp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Sign Up'),
-      ),
-      body: Center(
-        child: Text('Sign Up Page'),
       ),
     );
   }

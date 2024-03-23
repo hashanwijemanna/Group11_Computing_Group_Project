@@ -105,7 +105,6 @@ class _StudentHomePageState extends State<StudentHomePage> {
                           ElevatedButton.icon(
                             onPressed: () {
                               // Add functionality for the first button
-
                             },
                             icon: Image.asset(
                               'assets/student/map.png', // Path to your image asset

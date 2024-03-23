@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'SignIn.dart';
 
-class SignUp extends StatelessWidget {
+class SignUpOwner extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -27,17 +27,17 @@ class _SignUpPageState extends State<SignUpPage> {
   final _formKey = GlobalKey<FormState>();
   String _userName = '';
   String _email = '';
+  String _contact = '';
   String _password = '';
-  String _userType = '';
 
   Future<void> insertRecord() async {
     try {
-      String uri = "http://10.0.2.2/practice_api/insert_record.php";
+      String uri = "https://osttnetrides.000webhostapp.com/insert_record_owner.php";
 
       var res = await http.post(Uri.parse(uri), body: {
         "username": _userName,
         "email": _email,
-        "user_type": _userType,
+        "contact": _contact,
         "password": _password
       });
 
@@ -67,15 +67,15 @@ class _SignUpPageState extends State<SignUpPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
-        children: [
-          Image.asset(
-            'assets/sign.png', // Path to your image asset
-            width: MediaQuery.of(context).size.width, // Width equal to device width
-            fit: BoxFit.fitWidth, // Fit the width of the device
-          ),
-          SingleChildScrollView(
-            child: Container(
+      body: SingleChildScrollView(
+        child: Stack(
+          children: [
+            Image.asset(
+              'assets/sign.png', // Path to your image asset
+              width: MediaQuery.of(context).size.width, // Width equal to device width
+              fit: BoxFit.fitWidth, // Fit the width of the device
+            ),
+            Container(
               padding: const EdgeInsets.all(20.0),
               child: Column(
                 children: <Widget>[
@@ -96,12 +96,12 @@ class _SignUpPageState extends State<SignUpPage> {
                       children: <Widget>[
                         TextFormField(
                           decoration: InputDecoration(
-                            labelText: 'User Name',
+                            labelText: 'Full Name',
                             border: OutlineInputBorder(),
                           ),
                           validator: (value) {
                             if (value == null || value.isEmpty) {
-                              return 'Please enter your user name';
+                              return 'Please enter your name';
                             }
                             return null;
                           },
@@ -114,12 +114,12 @@ class _SignUpPageState extends State<SignUpPage> {
                         SizedBox(height: 20.0),
                         TextFormField(
                           decoration: InputDecoration(
-                            labelText: 'Email',
+                            labelText: "Email",
                             border: OutlineInputBorder(),
                           ),
                           validator: (value) {
                             if (value == null || value.isEmpty) {
-                              return 'Please enter your email';
+                              return "Please enter your email";
                             }
                             return null;
                           },
@@ -130,39 +130,22 @@ class _SignUpPageState extends State<SignUpPage> {
                           },
                         ),
                         SizedBox(height: 20.0),
-                        DropdownButtonFormField<String>(
+                        TextFormField(
+                          obscureText: true,
                           decoration: InputDecoration(
-                            labelText: 'User Type',
+                            labelText: 'Contact Number',
                             border: OutlineInputBorder(),
                           ),
-                          items: [
-                            DropdownMenuItem(
-                              child: Text('Student'),
-                              value: 'Student',
-                            ),
-                            DropdownMenuItem(
-                              child: Text('Parent'),
-                              value: 'Parent',
-                            ),
-                            DropdownMenuItem(
-                              child: Text('Bus Owner'),
-                              value: 'Bus Owner',
-                            ),
-                            DropdownMenuItem(
-                              child: Text('Bus Driver'),
-                              value: 'Bus Driver',
-                            ),
-                          ],
-                          onChanged: (value) {
-                            setState(() {
-                              _userType = value!;
-                            });
-                          },
                           validator: (value) {
                             if (value == null || value.isEmpty) {
-                              return 'Please select your user type';
+                              return 'Please enter your contact number';
                             }
                             return null;
+                          },
+                          onChanged: (value) {
+                            setState(() {
+                              _contact = value;
+                            });
                           },
                         ),
                         SizedBox(height: 20.0),
@@ -185,6 +168,8 @@ class _SignUpPageState extends State<SignUpPage> {
                           },
                         ),
                         SizedBox(height: 20.0),
+
+
                         ElevatedButton(
                           onPressed: () {
                             if (_formKey.currentState != null &&
@@ -192,7 +177,7 @@ class _SignUpPageState extends State<SignUpPage> {
                               // Process sign-up
                               print('User Name: $_userName');
                               print('Email: $_email');
-                              print('User Type: $_userType');
+                              print('Contact Nu: $_contact');
                               print('Password: $_password');
                               insertRecord();
                             }
@@ -218,8 +203,8 @@ class _SignUpPageState extends State<SignUpPage> {
                 ],
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

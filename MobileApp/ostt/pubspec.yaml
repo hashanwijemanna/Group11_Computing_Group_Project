@@ -117,3 +117,5 @@ flutter:
     - assets/student/notification.png
     - assets/student/route.png
     - assets/student/feedback.png
+    - assets/owner/bus.png
+    - assets/owner/driver.png

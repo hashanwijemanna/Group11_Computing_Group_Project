@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'SignUpDriver.dart';
 import 'AboutMeOwner.dart';
 import 'SignIn.dart' show SignIn; // Import the SignIn screen file
 
@@ -32,69 +33,161 @@ class _BusOwnerHomePageState extends State<BusOwnerHomePage> {
           },
         ),
       ),
-      body: Container(
-        color: Colors.blue[100], // Background color of the container
-        child: Column(
-          children: [
-            SizedBox(height: 40),
-            CarouselSlider(
-              options: CarouselOptions(
-                autoPlay: true,
-                aspectRatio: 16 / 9,
-                enlargeCenterPage: true,
+      body: SingleChildScrollView(
+        child: Container(
+          color: Colors.blue[100], // Background color of the container
+          child: Column(
+            children: [
+              SizedBox(height: 40),
+              CarouselSlider(
+                options: CarouselOptions(
+                  autoPlay: true,
+                  aspectRatio: 16 / 9,
+                  enlargeCenterPage: true,
+                ),
+                items: [
+                  AssetImage('assets/slider/slide1.jpg'),
+                  AssetImage('assets/slider/slide2.jpg'),
+                  AssetImage('assets/slider/slide3.jpg'),
+                  AssetImage('assets/slider/slide4.jpg'),
+                  AssetImage('assets/slider/slide5.jpg'),
+                  // Add more images as needed
+                ].map((item) {
+                  return Builder(
+                    builder: (BuildContext context) {
+                      return Container(
+                        width: MediaQuery.of(context).size.width,
+                        margin: EdgeInsets.symmetric(horizontal: 5.0),
+                        decoration: BoxDecoration(
+                          color: Colors.grey,
+                        ),
+                        child: Image(
+                          image: item,
+                          fit: BoxFit.cover,
+                        ),
+                      );
+                    },
+                  );
+                }).toList(),
               ),
-              items: [
-                AssetImage('assets/slider/slide1.jpg'),
-                AssetImage('assets/slider/slide2.jpg'),
-                AssetImage('assets/slider/slide3.jpg'),
-                AssetImage('assets/slider/slide4.jpg'),
-                AssetImage('assets/slider/slide5.jpg'),
-                // Add more images as needed
-              ].map((item) {
-                return Builder(
-                  builder: (BuildContext context) {
-                    return Container(
-                      width: MediaQuery.of(context).size.width,
-                      margin: EdgeInsets.symmetric(horizontal: 5.0),
-                      decoration: BoxDecoration(
-                        color: Colors.grey,
+              SizedBox(height: 20), // Spacer
+              Padding(
+                padding: const EdgeInsets.all(20.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Text(
+                      '\nWelcome to NetRides!',
+                      style: TextStyle(
+                        color: Colors.blue[600],
+                        fontSize: 24.0,
+                        fontWeight: FontWeight.bold,
                       ),
-                      child: Image(
-                        image: item,
-                        fit: BoxFit.cover,
+                    ),
+                    SizedBox(height: 10),
+                    Text(
+                      '\nYour ultimate destination for hassle-free transportation.\n',
+                      style: TextStyle(
+                        color: Colors.grey[600],
+                        fontSize: 16.0,
                       ),
-                    );
-                  },
-                );
-              }).toList(),
-            ),
-            SizedBox(height: 20), // Spacer
-            Padding(
-              padding: const EdgeInsets.all(20.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Text(
-                    '\n\nWelcome to NetRides!',
-                    style: TextStyle(
-                      color: Colors.blue[600],
-                      fontSize: 24.0,
-                      fontWeight: FontWeight.bold,
+                      textAlign: TextAlign.center,
                     ),
-                  ),
-                  SizedBox(height: 10),
-                  Text(
-                    '\nYour ultimate destination for hassle-free transportation.',
-                    style: TextStyle(
-                      color: Colors.grey[600],
-                      fontSize: 16.0,
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        ElevatedButton.icon(
+                          onPressed: () {
+                            Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(builder: (context) => SignUpDriver()),
+                            );
+                          },
+                          icon: Image.asset(
+                            'assets/owner/driver.png', // Path to your image asset
+                            width: 50, // Adjust width as needed
+                            height: 50, // Adjust height as needed
+                            fit: BoxFit.contain, // Adjust the fit property as needed
+                          ),
+                          label: Text('Register\nDrivers'),
+                          style: ElevatedButton.styleFrom(
+                            primary: Colors.white, // Background color
+                            onPrimary: Colors.black, // Text color
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20.0),
+                            ),
+                          ),
+                        ),
+                        ElevatedButton.icon(
+                          onPressed: () {
+                            // Add functionality for the sixth button
+                          },
+                          icon: Image.asset(
+                            'assets/owner/bus.png', // Path to your image asset
+                            width: 50, // Adjust width as needed
+                            height: 50, // Adjust height as needed
+                            fit: BoxFit.contain, // Adjust the fit property as needed
+                          ),
+                          label: Text('Bus\nDetails'),
+                          style: ElevatedButton.styleFrom(
+                            primary: Colors.white, // Background color
+                            onPrimary: Colors.black, // Text color
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20.0),
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
-                    textAlign: TextAlign.center,
-                  ),
-                ],
+                    SizedBox(height: 20), // Add a SizedBox for spacing
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        ElevatedButton.icon(
+                          onPressed: () {
+                            // Add functionality for the fifth button
+                          },
+                          icon: Image.asset(
+                            'assets/student/notification.png', // Path to your image asset
+                            width: 50, // Adjust width as needed
+                            height: 50, // Adjust height as needed
+                            fit: BoxFit.contain, // Adjust the fit property as needed
+                          ),
+                          label: Text('Notifications'),
+                          style: ElevatedButton.styleFrom(
+                            primary: Colors.white, // Background color
+                            onPrimary: Colors.black, // Text color
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20.0),
+                            ),
+                          ),
+                        ),
+                        ElevatedButton.icon(
+                          onPressed: () {
+                            // Add functionality for the sixth button
+                          },
+                          icon: Image.asset(
+                            'assets/student/feedback.png', // Path to your image asset
+                            width: 50, // Adjust width as needed
+                            height: 50, // Adjust height as needed
+                            fit: BoxFit.contain, // Adjust the fit property as needed
+                          ),
+                          label: Text('Feedbacks'),
+                          style: ElevatedButton.styleFrom(
+                            primary: Colors.white, // Background color
+                            onPrimary: Colors.black, // Text color
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20.0),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
       drawer: Drawer(
@@ -141,13 +234,6 @@ class _BusOwnerHomePageState extends State<BusOwnerHomePage> {
                   context,
                   MaterialPageRoute(builder: (context) => AboutMeOwner(email: widget.email)),
                 );
-              },
-            ),
-            ListTile(
-              title: Text('Bus Details'),
-              onTap: () {
-                Navigator.pop(context); // Close the drawer
-                // Navigate to the About Me page or perform any other action
               },
             ),
             ListTile(
