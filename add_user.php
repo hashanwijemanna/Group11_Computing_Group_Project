@@ -1,9 +1,9 @@
 <?php
 // Connect to the database
 $servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "ostt";
+$username = "id21996630_netrides123";
+$password = "Netrides2002!";
+$dbname = "id21996630_netrides";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -16,8 +16,8 @@ if ($conn->connect_error) {
 $data = json_decode(file_get_contents("php://input"), true);
 
 // Insert data into the database (use prepared statements for security)
-$stmt = $conn->prepare("INSERT INTO student (nic, first_name, last_name, date_of_birth, address, mobile_number, email_address, faculty, emergency_contact_name, emergency_contact_number) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-$stmt->bind_param("ssssssssss", $data['nic'], $data['first_name'], $data['last_name'], $data['date_of_birth'], $data['address'], $data['mobile_number'], $data['email_address'], $data['faculty'], $data['emergency_contact_name'], $data['emergency_contact_number']);
+$stmt = $conn->prepare("INSERT INTO user_student (username, email, contact, password) VALUES (?, ?, ?, ?)");
+$stmt->bind_param("ssss", $data['username'], $data['email'], $data['contact'], $data['password']);
 
 if ($stmt->execute()) {
     $response = ["message" => "User added successfully."];

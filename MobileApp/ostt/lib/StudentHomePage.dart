@@ -3,6 +3,9 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:ostt/AboutMeStudent.dart';
 import 'SignIn.dart' show SignIn;
 import 'AboutUsStudent.dart';
+import 'BusDetailsST.dart';
+import 'FeedbacksST.dart';
+import 'NotificationsST.dart';
 
 class StudentHomePage extends StatefulWidget {
   final String email;
@@ -122,7 +125,10 @@ class _StudentHomePageState extends State<StudentHomePage> {
                           ),
                           ElevatedButton.icon(
                             onPressed: () {
-                              // Add functionality for the second button
+                              Navigator.pushReplacement(
+                                context,
+                                MaterialPageRoute(builder: (context) => BusDetailsST()),
+                              );
                             },
                             icon: Image.asset(
                               'assets/student/bus.png', // Path to your image asset
@@ -146,49 +152,7 @@ class _StudentHomePageState extends State<StudentHomePage> {
                         children: [
                           ElevatedButton.icon(
                             onPressed: () {
-                              // Add functionality for the fifth button
-                            },
-                            icon: Image.asset(
-                              'assets/student/route.png', // Path to your image asset
-                              width: 60, // Adjust width as needed
-                              height: 60, // Adjust height as needed
-                              fit: BoxFit.contain, // Adjust the fit property as needed
-                            ),
-                            label: Text('Route\nDetails'),
-                            style: ElevatedButton.styleFrom(
-                              foregroundColor: Colors.black, backgroundColor: Colors.white,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(20.0),
-                              ),
-                            ),
-                          ),
-                          ElevatedButton.icon(
-                            onPressed: () {
-                              // Add functionality for the sixth button
-                            },
-                            icon: Image.asset(
-                              'assets/student/activity.png', // Path to your image asset
-                              width: 60, // Adjust width as needed
-                              height: 60, // Adjust height as needed
-                              fit: BoxFit.contain, // Adjust the fit property as needed
-                            ),
-                            label: Text('History'),
-                            style: ElevatedButton.styleFrom(
-                              foregroundColor: Colors.black, backgroundColor: Colors.white,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(20.0),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                      SizedBox(height: 10),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          ElevatedButton.icon(
-                            onPressed: () {
-                              // Add functionality for the fifth button
+
                             },
                             icon: Image.asset(
                               'assets/student/notification.png', // Path to your image asset
@@ -206,7 +170,10 @@ class _StudentHomePageState extends State<StudentHomePage> {
                           ),
                           ElevatedButton.icon(
                             onPressed: () {
-                              // Add functionality for the sixth button
+                              Navigator.pushReplacement(
+                                context,
+                                MaterialPageRoute(builder: (context) => FeedbackFormST()),
+                              );
                             },
                             icon: Image.asset(
                               'assets/student/feedback.png', // Path to your image asset

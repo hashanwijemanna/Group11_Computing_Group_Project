@@ -152,13 +152,6 @@ class _AboutMePageState extends State<AboutMeStudent> {
               },
             ),
             ListTile(
-              title: Text('Bus Details'),
-              onTap: () {
-                Navigator.pop(context); // Close the drawer
-                // Navigate to the About Me page or perform any other action
-              },
-            ),
-            ListTile(
               title: Text('About Us'),
               onTap: () {
                 Navigator.pushReplacement(

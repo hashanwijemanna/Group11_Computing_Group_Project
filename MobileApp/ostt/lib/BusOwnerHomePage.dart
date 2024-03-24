@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:ostt/AboutUsOwner.dart';
+import 'package:ostt/FeedbackOW.dart';
 import 'SignUpDriver.dart';
 import 'AboutMeOwner.dart';
-import 'SignIn.dart' show SignIn; // Import the SignIn screen file
+import 'SignIn.dart' show SignIn;
+import 'BusDetails.dart';
 
 class BusOwnerHomePage extends StatefulWidget {
   final String email;
@@ -119,7 +122,10 @@ class _BusOwnerHomePageState extends State<BusOwnerHomePage> {
                         ),
                         ElevatedButton.icon(
                           onPressed: () {
-                            // Add functionality for the sixth button
+                            Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(builder: (context) => BusDetails()),
+                            );
                           },
                           icon: Image.asset(
                             'assets/owner/bus.png', // Path to your image asset
@@ -161,7 +167,10 @@ class _BusOwnerHomePageState extends State<BusOwnerHomePage> {
                         ),
                         ElevatedButton.icon(
                           onPressed: () {
-                            // Add functionality for the sixth button
+                            Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(builder: (context) => FeedbackOW()),
+                            );
                           },
                           icon: Image.asset(
                             'assets/student/feedback.png', // Path to your image asset
@@ -236,7 +245,10 @@ class _BusOwnerHomePageState extends State<BusOwnerHomePage> {
               title: Text('About Us'),
               onTap: () {
                 Navigator.pop(context); // Close the drawer
-                // Navigate to the About Me page or perform any other action
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => AboutUsOwner()),
+                );
               },
             ),
             ListTile(

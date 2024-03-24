@@ -277,7 +277,7 @@ class _SignUpPageState extends State<SignUpPage> {
                                   }
                                 }
                               },
-                                child: Text(
+                              child: Text(
                                 'Register',
                                 style: TextStyle(
                                   fontWeight: FontWeight.bold,

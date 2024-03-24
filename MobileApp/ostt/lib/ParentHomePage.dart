@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'AboutMeParent.dart';
+import 'AboutUsParent.dart';
 import 'SignIn.dart' show SignIn;
 
 class ParentHomePage extends StatefulWidget {
@@ -148,7 +149,10 @@ class _ParentHomePageState extends State<ParentHomePage> {
               title: Text('About Us'),
               onTap: () {
                 Navigator.pop(context); // Close the drawer
-                // Navigate to the About Me page or perform any other action
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => AboutUsParent()),
+                );
               },
             ),
             ListTile(

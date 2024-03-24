@@ -1,7 +1,9 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:ostt/AboutMeDriver.dart';
-import 'SignIn.dart' show SignIn; // Import the SignIn screen file
+import 'package:ostt/FeedbackDR.dart';
+import 'AboutUsDriver.dart';
+import 'SignIn.dart' show SignIn;
 
 class BusDriverHomePage extends StatefulWidget {
   final String email;
@@ -95,6 +97,51 @@ class _BusDriverHomePageState extends State<BusDriverHomePage> {
                 ],
               ),
             ),
+            SizedBox(height: 20), // Spacer
+            Row( // Moved the row inside the Column
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                ElevatedButton.icon(
+                  onPressed: () {
+                    // Add functionality for Map button
+                  },
+                  icon: Image.asset(
+                    'assets/student/map.png', // Path to your image asset
+                    width: 50, // Adjust width as needed
+                    height: 50, // Adjust height as needed
+                    fit: BoxFit.contain, // Adjust the fit property as needed
+                  ),
+                  label: Text('Map'),
+                  style: ElevatedButton.styleFrom(
+                    foregroundColor: Colors.black, backgroundColor: Colors.white, // Text color
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20.0),
+                    ),
+                  ),
+                ),
+                ElevatedButton.icon(
+                  onPressed: () {
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(builder: (context) => FeedbackFormDR()),
+                    );
+                  },
+                  icon: Image.asset(
+                    'assets/student/feedback.png', // Path to your image asset
+                    width: 50, // Adjust width as needed
+                    height: 50, // Adjust height as needed
+                    fit: BoxFit.contain, // Adjust the fit property as needed
+                  ),
+                  label: Text('Feedbacks'),
+                  style: ElevatedButton.styleFrom(
+                    foregroundColor: Colors.black, backgroundColor: Colors.white, // Text color
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20.0),
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ],
         ),
       ),
@@ -145,17 +192,13 @@ class _BusDriverHomePageState extends State<BusDriverHomePage> {
               },
             ),
             ListTile(
-              title: Text('Bus Details'),
-              onTap: () {
-                Navigator.pop(context); // Close the drawer
-                // Navigate to the About Me page or perform any other action
-              },
-            ),
-            ListTile(
               title: Text('About Us'),
               onTap: () {
                 Navigator.pop(context); // Close the drawer
-                // Navigate to the About Me page or perform any other action
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => AboutUsDriver()),
+                );
               },
             ),
             ListTile(

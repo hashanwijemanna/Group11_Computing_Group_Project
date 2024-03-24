@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:ostt/ParentHomePage.dart';
+import 'AboutUsParent.dart';
 import 'SignIn.dart';
 
 class AboutMeParent extends StatefulWidget {
@@ -151,17 +152,12 @@ class _AboutMePageState extends State<AboutMeParent> {
               },
             ),
             ListTile(
-              title: Text('Bus Details'),
-              onTap: () {
-                Navigator.pop(context); // Close the drawer
-                // Navigate to the About Me page or perform any other action
-              },
-            ),
-            ListTile(
               title: Text('About Us'),
               onTap: () {
-                Navigator.pop(context); // Close the drawer
-                // Navigate to the About Me page or perform any other action
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => AboutUsParent()),
+                );
               },
             ),
             ListTile(

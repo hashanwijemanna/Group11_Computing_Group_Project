@@ -33,8 +33,7 @@ function searchUsers() {
         .catch(error => console.error('Error:', error));
 }
 
-
-
+// Function to fetch student data
 function fetchStudentData() {
     fetch('studentdb.php')
         .then(response => response.text())
@@ -44,8 +43,12 @@ function fetchStudentData() {
         .catch(error => console.error('Error:', error));
 }
 
-// Call the function when the page loads
-window.onload = fetchStudentData;
+// Function to scroll to the top of the page
+function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
 
-
-
+// Call the function when the DOM content is loaded
+document.addEventListener('DOMContentLoaded', function () {
+    fetchStudentData();
+});

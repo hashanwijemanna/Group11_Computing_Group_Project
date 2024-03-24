@@ -81,18 +81,7 @@ class _CategoryState extends State<Category> {
               child: Text("A Bus Owner", style: TextStyle(color: Colors.lightBlue)),
             ),
             SizedBox(height: 10), // Add some space between buttons
-            ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => SignUpDriver()), //to be change!!!!
-                );
-              },
-              style: ElevatedButton.styleFrom(
-                foregroundColor: Colors.white, backgroundColor: Colors.white,
-              ),
-              child: Text("A Bus Driver", style: TextStyle(color: Colors.lightBlue)),
-            ),
+
           ],
         ),
       ),

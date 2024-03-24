@@ -5,225 +5,63 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style02.css">
     <title>Admin Panel-User-details</title>
-
-    <style>
-        table {
-            border-collapse: collapse;
-            width: 100%;
-        }
-    
-        table, th, td {
-            border: 1px solid black;
-        }
-        
-    body {
-        font-family: Arial, sans-serif;
-        background-color: #f4f4f4;
-        margin: 0;
-        padding: 0;
-    }
-
-    h1 {
-        text-align: center;
-        background-color: #333;
-        color: #fff;
-        padding: 20px;
-        margin: 0;
-    }
-
-    /* Navigation bar styles */
-    nav {
-        background-color: #333;
-        color: #fff;
-        text-align: center;
-    }
-
-    nav ul {
-        list-style-type: none;
-        padding: 0;
-    }
-
-    nav li {
-        display: inline;
-        margin-right: 10px;
-    }
-
-    nav a {
-        text-decoration: none;
-        color: #fff;
-    }
-
-    .active {
-    background-color: green;
-    color: white;
-    }
-
-
-    /* Search bar styles */
-    #searchKeyword {
-        padding: 10px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        width: 300px;
-        margin-right: 10px;
-    }
-
-    #searchKeyword::placeholder {
-        color: #888;
-    }
-
-    /* Form styles */
-    form {
-        background-color: #fff;
-        padding: 20px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        margin-top: 20px;
-    }
-
-    label {
-        display: block;
-        margin-bottom: 5px;
-    }
-
-    input[type="text"],
-    input[type="date"],
-    input[type="email"],
-    select {
-        width: 100%;
-        padding: 8px;
-        margin-bottom: 10px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-    }
-
-    input[type="submit"] {
-        background-color: #333;
-        color: #fff;
-        padding: 10px 20px;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-    }
-
-    input[type="submit"]:hover {
-        background-color: #555;
-    }
-
-    /* Students Table styles */
-    table {
-        border-collapse: collapse;
-        width: 100%;
-        margin-top: 20px;
-    }
-
-    table, th, td {
-        border: 1px solid #ccc;
-    }
-</style>
-
-    </style>
 </head>
-
 <body>
-
     <center><h1>User Details</h1></center>
 
-    <!--navigation bar start-->
+    <!-- Navigation bar -->
     <nav>
         <ul>
             <li><a href="AdminPanel.html">Dashboard</a></li>
             <li><a href="UserDetails.html" class="active">User-details</a></li>
             <li><a href="RouteDetails.html">Route-details</a></li>
-            <li><a href="TripDetails.html">Trip-detals</a></li>
+            <li><a href="TripDetails.html">Trip-details</a></li>
             <li><a href="LocationDetails.html">Location-details</a></li>
             <li><a href="BusDetails.html">Bus-details</a></li>
             <li><a href="Incidents.html">Incidents</a></li>
             <li><a href="Notifications.html">Notifications</a></li>
         </ul>
     </nav>
-    <!--navigation bar end-->
 
-    <!--adding user start-->
+    <!-- Adding user form -->
     <h1>Add User</h1>
     <form id="userForm">
-        <label for="nic">NIC No:</label>
-        <input type="text" id="nic" name="nic" required>
-        <br>
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required><br>
 
-        <label for="first_name">First Name:</label>
-        <input type="text" id="first_name" name="first_name" required>
-        <br>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br>
 
-        <label for="last_name">Last Name:</label>
-        <input type="text" id="last_name" name="last_name" required>
-        <br>
+        <label for="contact">Contact:</label>
+        <input type="text" id="contact" name="contact" required><br>
 
-        <label for="date_of_birth">Date of Birth:</label>
-        <input type="date" id="date_of_birth" name="date_of_birth" required>
-        <br>
-        
-        <label for="address">Address:</label>
-        <input type="text" id="address" name="address" required>
-        <br>
-
-        <label for="mobile_number">Mobile Number:</label>
-        <input type="text" id="mobile_number" name="mobile_number" required>
-        <br>
-
-        <label for="email_address">Email Address:</label>
-        <input type="email" id="email_address" name="email_address" required>
-        <br>
-
-        <label for="faculty">Faculty:</label>
-        <select id="faculty" name="faculty" required>
-            <option>Faculty of Bussiness</option>
-            <option>Faculty of Computing</option>
-            <option>Faculty of Engineering</option>
-            <option>Faculty of Science</option>
-        </select>
-        <br>
-
-        <label for="emergency_contact_name">Emergency Contact Name:</label>
-        <input type="text" id="emergency_contact_name" name="emergency_contact_name" required>
-        <br>
-
-        <label for="emergency_contact_number">Emergency_Contact_Number:</label>
-        <input type="text" id="emergency_contact_number" name="emergency_contact_number" required>
-        <br>
-
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required><br>
 
         <input type="submit" value="Add User">
     </form>
-
     <div id="message"></div>
-    <!--adding user end-->
 
-    
-    <!-- Search Bar -->
+    <!-- Search bar -->
     <h1>Search Users</h1>
-    <br>
-    <center><input type="text" id="searchKeyword" placeholder="Enter keyword">
-    <button onclick="searchUsers()">Search</button></center>
+    <div>
+        <input type="text" id="searchKeyword" placeholder="Enter keyword">
+        <button onclick="searchUsers()">Search</button>
+    </div>
 
-
-    <!--calling student table-->
+    <!-- Students Table -->
     <h1>Students Table</h1>
     <div id="studentData"></div>
 
-    <!--back-to-top start-->
+    <!-- Back-to-top button -->
     <button onclick="scrollToTop()" id="back-to-top">Back to Top</button>
-    <!--back-to-top end-->
 
-    <br><br><br>
-    <!--footer start-->
+    <!-- Footer -->
     <footer>
         <p>&copy; 2023 OSTT. All rights reserved.</p>
     </footer>
-    <!--footer end-->
 
-
-    <script src="script02.js"></script>
+    <!-- JavaScript -->
     <script src="studentdb.js"></script>
 </body>
 </html>

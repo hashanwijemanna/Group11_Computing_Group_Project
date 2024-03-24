@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'package:ostt/AboutUsOwner.dart';
 import 'package:ostt/BusOwnerHomePage.dart';
 import 'SignIn.dart';
 
@@ -151,17 +152,13 @@ class _AboutMePageState extends State<AboutMeOwner> {
               },
             ),
             ListTile(
-              title: Text('Bus Details'),
-              onTap: () {
-                Navigator.pop(context); // Close the drawer
-                // Navigate to the About Me page or perform any other action
-              },
-            ),
-            ListTile(
               title: Text('About Us'),
               onTap: () {
-                Navigator.pop(context); // Close the drawer
-                // Navigate to the About Me page or perform any other action
+                // Navigate to the SignIn screen
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => AboutUsOwner()),
+                );
               },
             ),
             ListTile(
