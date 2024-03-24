@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'SecondPage.dart'; // Import the SecondPage
+import 'map_page.dart';
 
 void main() {
   runApp(NetRides());
