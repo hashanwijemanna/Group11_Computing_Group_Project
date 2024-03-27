@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'SecondPage.dart'; // Import the SecondPage
-import 'map_page.dart';
+import 'map_page.dart'; // Import the MapPage
 
 void main() {
   runApp(NetRides());
@@ -14,7 +14,7 @@ class NetRides extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: "Net Rides",
       theme: ThemeData(primarySwatch: Colors.blue),
-      home: NetRidesHome(), // Use NetRidesHome widget as the home
+      home: MapPage(), // Use NetRidesHome widget as the home
     );
   }
 }
